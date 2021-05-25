@@ -18,7 +18,11 @@
 
 /delete-node/ &rmtfs_mem;
 
-/ {
+/{
+	model = "Xiaomi Mi Mix 3";
+	compatible = "xiaomi,perseus", "qcom,sdm845";
+}; 
+{
 	aliases {
 		hsuart0 = &uart6;
 	};
@@ -446,7 +450,7 @@
 
 &pmi8998_fg {
 	status = "okay";
-
+	qcom,battery-capacity-ua = <3200000>;
 	qcom,max-voltage-uv = <4400000>;
 	qcom,min-voltage-uv = <3700000>;
 };
@@ -653,13 +657,4 @@
 	vdd-3.3-ch0-supply = <&vreg_l25a_3p3>;
 
 	qcom,snoc-host-cap-8bit-quirk;
-};
-
-{
-	model = "Xiaomi Mi Mix 3";
-	compatible = "xiaomi,perseus", "qcom,sdm845";
-};
-
-&pmi8998_fg {
-	qcom,battery-capacity-ua = <3700000>;
 };
