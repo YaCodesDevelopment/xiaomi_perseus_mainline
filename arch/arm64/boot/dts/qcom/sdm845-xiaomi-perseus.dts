@@ -319,8 +319,8 @@
 	 * are common. Compatible line is declared in device dts.
 	 */
 	display_panel: panel@0 {
-		status = "disabled";
-
+		status = "okay";
+		compatible = "samsung,s6e3fc2x01";
 		#address-cells = <1>;
 		#size-cells = <0>;
 		reg = <0>;
@@ -658,12 +658,6 @@
 {
 	model = ""Xiaomi Technologies, Inc. Mi Mix 3";
 	compatible = "xiaomi,perseus", "qcom,sdm845";
-};
-
-&display_panel {
-	status = "okay";
-
-	compatible = "samsung,s6e3fc2x01";
 };
 
 &pmi8998_fg {
