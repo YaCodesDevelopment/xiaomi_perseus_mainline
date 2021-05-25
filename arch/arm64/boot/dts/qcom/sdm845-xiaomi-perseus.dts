@@ -655,3 +655,17 @@
 	qcom,snoc-host-cap-8bit-quirk;
 };
 
+{
+	model = ""Xiaomi Technologies, Inc. Mi Mix 3";
+	compatible = "xiaomi,perseus", "qcom,sdm845";
+};
+
+&display_panel {
+	status = "okay";
+
+	compatible = "samsung,s6e3fc2x01";
+};
+
+&pmi8998_fg {
+	qcom,battery-capacity-ua = <3700000>;
+};
