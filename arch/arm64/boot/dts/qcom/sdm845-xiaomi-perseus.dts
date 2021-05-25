@@ -656,7 +656,7 @@
 };
 
 {
-	model = ""Xiaomi Technologies, Inc. Mi Mix 3";
+	model = "Xiaomi Mi Mix 3";
 	compatible = "xiaomi,perseus", "qcom,sdm845";
 };
 
