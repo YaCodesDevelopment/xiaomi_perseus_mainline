@@ -19,10 +19,8 @@
 /delete-node/ &rmtfs_mem;
 
 /{
-	{
-		model = "Xiaomi Mi Mix 3";
-		compatible = "xiaomi,perseus", "qcom,sdm845";
-	}; 
+	model = "Xiaomi Mi Mix 3";
+	compatible = "xiaomi,perseus", "qcom,sdm845";
 	aliases {
 		hsuart0 = &uart6;
 	};
