@@ -25,29 +25,6 @@
 		hsuart0 = &uart6;
 	};
 //TODO Fix Volume Buttons
-/*	gpio-keys {
-		compatible = "gpio-keys";
-		label = "Volume keys";
-		autorepeat;
-
-		pinctrl-names = "default";
-		pinctrl-0 = <&volume_down_gpio &volume_up_gpio>;
-
-		vol-down {
-			label = "Volume down";
-			linux,code = <KEY_VOLUMEDOWN>;
-			gpios = <&pm8998_gpio 5 GPIO_ACTIVE_LOW>;
-			debounce-interval = <15>;
-		};
-
-		vol-up {
-			label = "Volume up";
-			linux,code = <KEY_VOLUMEUP>;
-			gpios = <&pm8998_gpio 6 GPIO_ACTIVE_LOW>;
-			debounce-interval = <15>;
-		};
-	};
-*/
 	reserved-memory {
 		/* The rmtfs_mem needs to be guarded due to "XPU limitations"
 		 * it is otherwise possible for an allocation adjacent to the
@@ -364,47 +341,7 @@
 		firmware-name = "qcom/sdm845/perseus/a630_zap.mbn";
 	};
 };
-/*
-&i2c12 {
-	#dma-cells = <3>;
-	status = "okay";
-	clock-frequency = <400000>;
 
-	dmas =  <&gpi_dma1 0 4 QCOM_GPI_I2C>,
-			<&gpi_dma1 1 4 QCOM_GPI_I2C>;
-	dma-names = "tx", "rx";
-
-	synaptics-rmi4-i2c@20 {
-		compatible = "syna,rmi4-i2c";
-		reg = <0x20>;
-		#address-cells = <1>;
-		#size-cells = <0>;
-		interrupts-extended = <&tlmm 125 IRQ_TYPE_EDGE_FALLING>;
-
-		pinctrl-names = "default";
-		pinctrl-0 = <&ts_default_pins>;
-
-		vdd-supply = <&vreg_l28a_3p0>;
-		vio-supply = <&ts_1p8_supply>;
-
-		syna,reset-delay-ms = <200>;
-		syna,startup-delay-ms = <200>;
-
-		rmi4-f01@1 {
-			reg = <0x01>;
-			syna,nosleep-mode = <1>;
-		};
-
-		rmi4_f12: rmi4-f12@12 {
-			reg = <0x12>;
-			touchscreen-x-mm = <68>;
-			touchscreen-y-mm = <144>;
-			syna,sensor-type = <1>;
-			syna,rezero-wait-ms = <200>;
-		};
-	};
-};
-*/
 &ipa {
 	status = "okay";
 	memory-region = <&ipa_fw_mem>;
@@ -465,16 +402,7 @@
 &qupv3_id_0 {
 	status = "okay";
 };
-/*
-&qup_i2c12_default {
-	mux {
-		pins = "gpio49", "gpio50";
-		function = "qup12";
-		drive-strength = <2>;
-		bias-disable;
-	};
-};
-*/
+
 &qup_i2c10_default {
 	pinconf {
 		pins = "gpio55", "gpio56";
