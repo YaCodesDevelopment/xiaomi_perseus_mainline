@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0
 /*
- * SDM845 OnePlus 6(T) (enchilada / fajita) common device tree source
+ * SDM845 Xiaomi Mi Mix 3 device tree source
  *
  * Copyright (c) 2020, The Linux Foundation. All rights reserved.
  */
