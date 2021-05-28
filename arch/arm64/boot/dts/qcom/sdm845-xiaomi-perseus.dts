@@ -527,18 +527,9 @@
 &tlmm {
 	gpio-reserved-ranges = <0 4>, <81 4>;
 
-	tri_state_key_default: tri_state_key_default {
-		mux {
-			pins = "gpio40", "gpio42", "gpio26";
-			function = "gpio";
-			drive-strength = <2>;
-			bias-disable;
-		};
-	};
-
 	ts_default_pins: ts-int {
 		mux {
-			pins = "gpio99", "gpio125";
+			pins = "gpio31", "gpio32";
 			function = "gpio";
 			drive-strength = <16>;
 			bias-pull-up;
@@ -583,4 +574,23 @@
 	vdd-3.3-ch0-supply = <&vreg_l25a_3p3>;
 
 	qcom,snoc-host-cap-8bit-quirk;
+};
+
+&i2c14 {
+  status="okay";
+
+  dmas =  <&gpi_dma1 0 6 QCOM_GPI_I2C>,
+      <&gpi_dma1 1 6 QCOM_GPI_I2C>;
+  dma-names = "tx", "rx";
+
+  touchscreen@49 {
+	compatible = "st,stmfts";
+        reg = <0x49>;
+        interrupt-parent = <&tlmm>;
+        interrupts = <31 0x2008>;
+        vdd-supply = <&vreg_l14a_1p88>;
+        avdd-supply = <&vreg_l28a_3p0>;
+        touchscreen-size-x = <1079>;
+        touchscreen-size-y = <2339>;
+  };
 };
