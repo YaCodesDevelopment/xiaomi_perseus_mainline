@@ -21,10 +21,11 @@
 /{
 	model = "Xiaomi Mi Mix 3";
 	compatible = "xiaomi,perseus", "qcom,sdm845";
+
 	aliases {
 		hsuart0 = &uart6;
 	};
-//TODO Fix Volume Buttons
+
 	reserved-memory {
 		/* The rmtfs_mem needs to be guarded due to "XPU limitations"
 		 * it is otherwise possible for an allocation adjacent to the
@@ -102,17 +103,6 @@
 	 * Model it as a fixed regulator and keep it on. Without schematics we
 	 * don't know how this is actually wired up...
 	 */
-	ts_1p8_supply: ts-1p8-regulator {
-		compatible = "regulator-fixed";
-		regulator-name = "ts_1p8_supply";
-
-		regulator-min-microvolt = <1800000>;
-		regulator-max-microvolt = <1800000>;
-
-		gpio = <&tlmm 88 0>;
-		enable-active-high;
-		regulator-boot-on;
-	};
 };
 
 &adsp_pas {
