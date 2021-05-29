@@ -604,6 +604,14 @@
 	qcom,snoc-host-cap-8bit-quirk;
 };
 
+&qup_i2c14_default {
+  pinconf {
+    pins = "gpio33", "gpio34";
+    drive-strength = <2>;
+    bias-disable;
+  };
+};
+
 &i2c14 {
   status="okay";
 
