@@ -58,7 +58,7 @@
 			no-map;
 		};
 
-		/delete-node/memory@96500000
+		/delete-node/memory@96500000;
 		
 		mba_region: memory@96900000 {
 			reg = <0 0x96900000 0 0x200000>;
