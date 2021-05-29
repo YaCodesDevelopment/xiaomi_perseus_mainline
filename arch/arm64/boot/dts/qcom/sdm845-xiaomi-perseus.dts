@@ -34,26 +34,30 @@
 		/*Camera is not supported (yet), so sinceless to keep memory for it*/
 		/delete-node/memory@8bf00000;
 		
-		/delete-node/memory@8df00000;
+		/delete-node/memory@8e300000;
 
-		wlan_fw_region: memory@8e300000 {
+		wlan_msa_mem: memory@8e300000 {
 			reg = <0 0x8e300000 0 0x100000>;
 			no-map;
 		};
 
-		modem_region: memory@8e400000 {
+		/delete-node/memory@8e000000
+
+		mpss_region: memory@8e400000 {
 			reg = <0 0x8e400000 0 0x7800000>;
 			no-map;
 		};
 
-		video_region: memory@95c00000 {
+		/delete-node/memory@95800000;
+
+		venus_mem: memory@95c00000 {
 			reg = <0 0x95c00000 0 0x500000>;
 			no-map;
 		};
 		
 		/delete-node/memory@95d00000;
 
-		cdsp_region: memory@96100000 {
+		cdsp_mem: memory@96100000 {
 			reg = <0 0x96100000 0 0x800000>;
 			no-map;
 		};
@@ -67,14 +71,14 @@
 
 		/delete-node/memory@96700000;
 		
-		slpi_region: memory@96b00000 {
+		slpi_mem: memory@96b00000 {
 			reg = <0 0x96b00000 0 0x1400000>;
 			no-map;
 		};
 
 		/delete-node/memory@97b00000;
 		
-		pil_spss_region: memory@97f00000 {
+		spss_mem: memory@97f00000 {
 			reg = <0 0x97f00000 0 0x100000>;
 			no-map;
 		};
