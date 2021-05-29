@@ -34,7 +34,7 @@
 		/*Camera is not supported (yet), so sinceless to keep memory for it*/
 		/delete-node/memory@8bf00000;
 		
-		/delete-node/memory@8e300000;
+		/delete-node/memory@8df00000;
 
 		wlan_msa_mem: memory@8e300000 {
 			reg = <0 0x8e300000 0 0x100000>;
