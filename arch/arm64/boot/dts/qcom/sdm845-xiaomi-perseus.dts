@@ -32,9 +32,9 @@
 		ranges;
 
 		/*Camera is not supported (yet), so sinceless to keep memory for it*/
-		/delete-node/memory@8bf00000
+		/delete-node/memory@8bf00000;
 		
-		/delete-node/memory@8df00000
+		/delete-node/memory@8df00000;
 
 		wlan_fw_region: memory@8e300000 {
 			reg = <0 0x8e300000 0 0x100000>;
@@ -92,7 +92,7 @@
 		 * where the modem firmware expects it to be.
 		 */
 
-		/delete-node/memory@88f00000
+		/delete-node/memory@88f00000;
 		
 		rmtfs_mem: memory@f7301000 {
 			compatible = "qcom,rmtfs-mem";
