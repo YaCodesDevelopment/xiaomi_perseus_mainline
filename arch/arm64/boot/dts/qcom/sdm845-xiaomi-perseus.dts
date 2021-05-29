@@ -27,6 +27,55 @@
 	};
 
 	reserved-memory {
+		wlan_fw_region@8e300000 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0 0x8e300000 0 0x100000>;
+		};
+
+		modem_region@8e400000 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0 0x8e400000 0 0x7800000>;
+		};
+
+		video_region@95c00000 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0 0x95c00000 0 0x500000>;
+		};
+
+		/*/delete-node/memory@95d00000;*/
+		
+		cdsp_region@96100000 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0 0x96100000 0 0x800000>;
+		};
+
+		/*/delete-node/memory@96500000;*/
+		
+		mba_region@96900000 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0 0x96900000 0 0x200000>;
+		};
+
+		/delete-node/memory@96700000;
+		
+		slpi_region@96b00000 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0 0x96b00000 0 0x1400000>;
+		};
+
+		/delete-node/memory@97b00000;
+		
+		pil_spss_region@97f00000 {
+			compatible = "removed-dma-pool";
+			no-map;
+			reg = <0 0x97f00000 0 0x100000>;
+		};
 		/* The rmtfs_mem needs to be guarded due to "XPU limitations"
 		 * it is otherwise possible for an allocation adjacent to the
 		 * rmtfs_mem region to trigger an XPU violation, causing a crash.
@@ -60,17 +109,6 @@
 		removed_region: memory@88f00000 {
 			no-map;
 			reg = <0 0x88f00000 0 0x200000>;
-		};
-
-		ramoops: ramoops@ac300000 {
-			compatible = "ramoops";
-			reg = <0 0xac300000 0 0x400000>;
-			record-size = <0x40000>;
-			console-size = <0x40000>;
-			ftrace-size = <0x40000>;
-			pmsg-size = <0x200000>;
-			devinfo-size = <0x1000>;
-			ecc-size = <16>;
 		};
 	};
 
