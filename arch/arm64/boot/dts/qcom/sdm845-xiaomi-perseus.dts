@@ -27,79 +27,68 @@
 	};
 
 	reserved-memory {
-		wlan_fw_region@8e300000 {
-			compatible = "removed-dma-pool";
-			no-map;
+		wlan_fw_region: memory@8e300000 {
 			reg = <0 0x8e300000 0 0x100000>;
+			no-map;
 		};
 
-		modem_region@8e400000 {
-			compatible = "removed-dma-pool";
-			no-map;
+		modem_region: memory@8e400000 {
 			reg = <0 0x8e400000 0 0x7800000>;
+			no-map;
 		};
 
-		video_region@95c00000 {
-			compatible = "removed-dma-pool";
-			no-map;
+		video_region: memory@95c00000 {
 			reg = <0 0x95c00000 0 0x500000>;
-		};
-
-		/*/delete-node/memory@95d00000;*/
-		
-		cdsp_region@96100000 {
-			compatible = "removed-dma-pool";
 			no-map;
+		};
+		
+		cdsp_region: memory@96100000 {
 			reg = <0 0x96100000 0 0x800000>;
-		};
-
-		/*/delete-node/memory@96500000;*/
-		
-		mba_region@96900000 {
-			compatible = "removed-dma-pool";
 			no-map;
+		};
+		
+		mba_region: memory@96900000 {
 			reg = <0 0x96900000 0 0x200000>;
+			no-map;
 		};
 
 		/delete-node/memory@96700000;
 		
-		slpi_region@96b00000 {
-			compatible = "removed-dma-pool";
-			no-map;
+		slpi_region: memory@96b00000 {
 			reg = <0 0x96b00000 0 0x1400000>;
+			no-map;
 		};
 
 		/delete-node/memory@97b00000;
 		
-		pil_spss_region@97f00000 {
-			compatible = "removed-dma-pool";
-			no-map;
+		pil_spss_region: memory@97f00000 {
 			reg = <0 0x97f00000 0 0x100000>;
+			no-map;
 		};
 		/* The rmtfs_mem needs to be guarded due to "XPU limitations"
 		 * it is otherwise possible for an allocation adjacent to the
 		 * rmtfs_mem region to trigger an XPU violation, causing a crash.
 		 */
-		rmtfs_lower_guard: memory@f5b00000 {
+		rmtfs_lower_guard: memory@f7300000 {
+			reg = <0 0xf7300000 0 0x1000>;
 			no-map;
-			reg = <0 0xf5b00000 0 0x1000>;
 		};
 		/*
 		 * The rmtfs memory region in downstream is 'dynamically allocated'
 		 * but given the same address every time. Hard code it as this address is
 		 * where the modem firmware expects it to be.
 		 */
-		rmtfs_mem: memory@f5b01000 {
+		rmtfs_mem: memory@f7301000 {
 			compatible = "qcom,rmtfs-mem";
-			reg = <0 0xf5b01000 0 0x200000>;
+			reg = <0 0xf7301000 0 0x200000>;
 			no-map;
 
 			qcom,client-id = <1>;
 			qcom,vmid = <15>;
 		};
-		rmtfs_upper_guard: memory@f5d01000 {
+		rmtfs_upper_guard: memory@f7321000 {
+			reg = <0 0xf7321000 0 0x2000>;
 			no-map;
-			reg = <0 0xf5d01000 0 0x2000>;
 		};
 
 		/*
@@ -107,8 +96,8 @@
 		 * random crashes which are most likely modem related, more testing needed.
 		 */
 		removed_region: memory@88f00000 {
-			no-map;
 			reg = <0 0x88f00000 0 0x200000>;
+			no-map;
 		};
 	};
 
@@ -135,12 +124,6 @@
 
 		vin-supply = <&vph_pwr>;
 	};
-
-	/*
-	 * The touchscreen regulator seems to be controlled somehow by a gpio.
-	 * Model it as a fixed regulator and keep it on. Without schematics we
-	 * don't know how this is actually wired up...
-	 */
 };
 
 &adsp_pas {
@@ -557,7 +540,7 @@
 
 	ts_default_pins: ts-int {
 		mux {
-			pins = "gpio31", "gpio32";
+			pins = "gpio31";
 			function = "gpio";
 			drive-strength = <16>;
 			bias-pull-up;
