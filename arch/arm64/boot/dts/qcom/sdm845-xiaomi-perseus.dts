@@ -27,6 +27,15 @@
 	};
 
 	reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		/*Camera is not supported (yet), so sinceless to keep memory for it*/
+		/delete-node/memory@8bf00000
+		
+		/delete-node/memory@8df00000
+
 		wlan_fw_region: memory@8e300000 {
 			reg = <0 0x8e300000 0 0x100000>;
 			no-map;
@@ -42,10 +51,14 @@
 			no-map;
 		};
 		
+		/delete-node/memory@95d00000;
+
 		cdsp_region: memory@96100000 {
 			reg = <0 0x96100000 0 0x800000>;
 			no-map;
 		};
+
+		/delete-node/memory@96500000
 		
 		mba_region: memory@96900000 {
 			reg = <0 0x96900000 0 0x200000>;
@@ -78,6 +91,9 @@
 		 * but given the same address every time. Hard code it as this address is
 		 * where the modem firmware expects it to be.
 		 */
+
+		/delete-node/memory@88f00000
+		
 		rmtfs_mem: memory@f7301000 {
 			compatible = "qcom,rmtfs-mem";
 			reg = <0 0xf7301000 0 0x200000>;
@@ -88,15 +104,6 @@
 		};
 		rmtfs_upper_guard: memory@f7321000 {
 			reg = <0 0xf7321000 0 0x2000>;
-			no-map;
-		};
-
-		/*
-		 * It seems like reserving the old rmtfs_mem region is also needed to prevent
-		 * random crashes which are most likely modem related, more testing needed.
-		 */
-		removed_region: memory@88f00000 {
-			reg = <0 0x88f00000 0 0x200000>;
 			no-map;
 		};
 	};
