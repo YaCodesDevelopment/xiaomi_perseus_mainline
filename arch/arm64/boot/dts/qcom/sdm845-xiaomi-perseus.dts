@@ -41,7 +41,7 @@
 			no-map;
 		};
 
-		/delete-node/memory@8e000000
+		/delete-node/memory@8e000000;
 
 		mpss_region: memory@8e400000 {
 			reg = <0 0x8e400000 0 0x7800000>;
