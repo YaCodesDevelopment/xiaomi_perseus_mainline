@@ -31,13 +31,20 @@
 		#size-cells = <2>;
 		ranges;
 
-		/*Camera is not supported (yet), so sinceless to keep memory for it*/
+		/*Camera is not supported (yet), so senseless to keep memory for it*/
 		/delete-node/memory@8bf00000;
 		
 		/delete-node/memory@8df00000;
 
 		wlan_msa_mem: memory@8e300000 {
 			reg = <0 0x8e300000 0 0x100000>;
+			no-map;
+		};
+
+		/delete-node/memory@8c500000;
+
+		adsp_mem: memory@8c500000 {
+			reg = <0 0x8c500000 0 0x1e00000>;
 			no-map;
 		};
 
@@ -106,8 +113,8 @@
 			qcom,client-id = <1>;
 			qcom,vmid = <15>;
 		};
-		rmtfs_upper_guard: memory@f7321000 {
-			reg = <0 0xf7321000 0 0x2000>;
+		rmtfs_upper_guard: memory@f7501000 {
+			reg = <0 0xf7321000 0 0x1000>;
 			no-map;
 		};
 	};
